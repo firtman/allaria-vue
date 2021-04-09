@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "nombre": "Rabas",
+        "categoria": 10,
+        "precio": 300
+    },
+    {
+        "id": 2,
+        "nombre": "Pizza Muzzarela Chica",
+        "categoria": 11,
+        "precio": 300
+    },
+    {
+        "id": 3,
+        "nombre": "Pizza Muzzarela Grande",
+        "categoria": 11,
+        "precio": 500
+    }
+]

@@ -1,10 +1,11 @@
 <template>
-  <footer>(C) 2021 - EntregaYa</footer>
+  <footer>(C) 2021 - EntregaYa
+  </footer>
 </template>
 
 <script>
-export default {
 
+export default  {
 }
 </script>
 

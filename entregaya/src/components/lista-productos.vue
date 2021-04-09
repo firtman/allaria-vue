@@ -8,7 +8,7 @@
         </li>
       </ul>
       <p v-else>Error: no se puedo traer los productos</p>
-      <carrito :productos="carrito" />
+      <carrito @clear="limpiar" :carrito="carrito" />
   </section>
 </template>
 
@@ -35,6 +35,9 @@ export default {
     methods: {
         agregar: function(producto) {
             this.carrito.push(producto)
+        },
+        limpiar: function() {
+            this.carrito = []
         }
     }
 }
