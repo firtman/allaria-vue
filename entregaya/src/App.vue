@@ -13,20 +13,22 @@ import PiePagina from './components/pie-pagina.vue'
 export default {
   name: 'App',
   components: {
-    Encabezado, ListaProductos, PiePagina
+    Encabezado, PiePagina, ListaProductos
   }
 }
 </script>
 
-    PiePagina
 <style>
-#
-    ListaProductosapp {
+body {
+  --verde: green;
+  --rojo: red;
+  --amarillo: rgb(192, 192, 31);
+}
+#app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
