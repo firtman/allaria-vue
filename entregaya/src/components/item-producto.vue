@@ -1,7 +1,7 @@
 <template>
   <article>
       <section>
-        <p class=".categoria">{{ categoria(producto.categoria) }}</p>
+        <p class=".categoria">{{ categoria(producto.categoria_id) }}</p>
         <h2>{{ producto.nombre}}</h2>
         <p class=".precio">{{ precio }}</p>
       </section>

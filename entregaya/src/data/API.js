@@ -30,12 +30,12 @@ export class API {
     }
 
     static async getProductos() {        
-        let response = await fetch("/dummy/productos.json");
+        let response = await fetch("http://localhost:8000/api/productos");
         return await response.json();
     }
 
     static async getCategorias() {
-        let response = await fetch("/dummy/categorias.json");
+        let response = await fetch("http://localhost:8000/api/categorias");
         return await response.json();
     }
 

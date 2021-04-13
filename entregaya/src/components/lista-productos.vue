@@ -1,14 +1,15 @@
 <template>
   <section>
-      <h3>Lista de Productos</h3>
+      <h3>Lista de Productos <a @click="traerDatos">🔄</a></h3>
+      <input v-model="filtro" placeholder="Ingrese término de búsqueda">
       <ul v-if="!estadoError">
-        <li v-for="p in productos"
+        <li v-for="p in productosFiltrados"
             :key="p.id">
             <item-producto :producto="p" @add="agregar" />
         </li>
       </ul>
       <p v-else>Error: no se puedo traer los productos</p>
-      <carrito @clear="limpiar" :carrito="carrito" />
+      <carrito @clear="limpiar" :carrito="carrito" />      
   </section>
 </template>
 
@@ -22,17 +23,36 @@ export default {
         return {
             estadoError: false,
             productos: [],
-            carrito: []
+            carrito: [],
+            filtro: ""
         }
     },
-    async created() {
-        try {
-            this.productos = await API.getProductos();
-        } catch  {
-            this.estadoError = true;
+    created() {
+        setInterval(this.traerDatos, 10000)
+        this.traerDatos() 
+    },
+    // watch: {
+    //     filtro: function(newValor) {
+    //             console.log(newValor)
+    //     }
+    // },
+    computed: {
+        productosFiltrados: function() {
+            return this.productos.filter(
+                (producto) => {
+                    return producto.nombre.toLowerCase().indexOf(this.filtro.toLowerCase()) >= 0
+                }
+            )
         }
     },
     methods: {
+        traerDatos: async function() {
+            try {
+                this.productos = await API.getProductos();
+            } catch  {
+                this.estadoError = true;
+            }
+        },
         agregar: function(producto) {
             this.carrito.push(producto)
         },
@@ -48,5 +68,9 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0
+}
+input {
+    width: 90%;
+    margin-bottom: 40px;
 }
 </style>
