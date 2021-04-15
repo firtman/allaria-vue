@@ -8,7 +8,7 @@
         </li>
       </ul>
       <button @click="limpiar">Limpiar</button>
-      <button>Finalizar</button>
+      <button @click="finalizar">Finalizar</button>
     
   </section>
 </template>
@@ -19,6 +19,9 @@ export default {
     methods: {
         limpiar: function() {
             this.$emit("clear");
+        },
+        finalizar: function() {
+            this.$router.push("/finalizar")
         }
     }
 }
@@ -44,5 +47,6 @@ export default {
         height: 200px;
         border: 1px solid gray;
         border-radius: 10px;
+        background: white;
     }
 </style>

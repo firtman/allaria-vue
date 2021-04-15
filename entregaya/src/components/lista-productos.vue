@@ -28,14 +28,18 @@ export default {
         }
     },
     created() {
-        setInterval(this.traerDatos, 10000)
-        this.traerDatos() 
+        setInterval(this.traerDatos, 10000);
+        this.traerDatos();
+        if (sessionStorage.getItem("carrito")!=undefined) {
+            this.carrito = JSON.parse(sessionStorage.getItem("carrito"))
+        }
     },
-    // watch: {
-    //     filtro: function(newValor) {
-    //             console.log(newValor)
-    //     }
-    // },
+    watch: {
+        carrito: function(carrito) {
+            this.$parent
+            sessionStorage.setItem("carrito", JSON.stringify(carrito))
+        }
+    },
     computed: {
         productosFiltrados: function() {
             return this.productos.filter(

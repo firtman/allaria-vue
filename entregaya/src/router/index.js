@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Aforo from '../views/Aforo.vue'
+import Contacto from '../views/Contacto.vue'
+import Finalizar from '../views/Finalizar.vue'
 
 Vue.use(VueRouter)
 
@@ -18,9 +20,20 @@ const routes = [
     component: About
   },
   {
+    path: '/contacto',
+    name: 'Contacto',
+    component: Contacto
+  },
+  {
     path: '/aforo',
     name: 'Aforo',
     component: Aforo
+  }
+  ,
+  {
+    path: '/finalizar',
+    name: 'Finalizar Pedido',
+    component: Finalizar
   }
 ]
 
